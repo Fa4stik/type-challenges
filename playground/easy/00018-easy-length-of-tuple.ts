@@ -22,9 +22,9 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Length<T> = T extends {length: infer U}
-    ? U
-    : never
+type Length<T> = T extends { length: infer U }
+  ? U
+  : never
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
@@ -37,9 +37,7 @@ type check = Length<typeof tesla>
 type cases = [
   Expect<Equal<Length<typeof tesla>, 4>>,
   Expect<Equal<Length<typeof spaceX>, 5>>,
-  // @ts-expect-error
   Length<5>,
-  // @ts-expect-error
   Length<'hello world'>,
 ]
 
